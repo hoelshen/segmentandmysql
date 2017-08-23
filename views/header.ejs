@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>软件小站</title>
+    <meta charset="UTF-8">
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+    <!--<link rel='stylesheet' href='/stylesheets/style.css' />-->
+    <style>
+        .horul{
+            float:left;
+            font-size:1.5em;
+            line-height:2em;
+        }
+        .horul li{
+            display:inline-block;
+            list-style:none;
+            height:25px;
+            width:3em;
+            text-align:center;
+        }
+        .menu{
+            width:1024px;
+            background-color:#005f3d;
+            height:1.5em;
+            margin:0 auto;
+            font-size:1.5em;
+            visible:hidden;
+            text-align:center;
+        }
+        .menu span{
+            float:left;
+            display:inline-block;
+            color:#ffffff;
+            margin-left:1em;
+        }
+        .answer tr td div{
+            width:45px;
+            height:45px;
+            background-color:green;
+            color:#ffffff;
+            text-align:center;
+        }
+        .menu a,.menu a:hover,.menu a:visited{
+            color:#ffffff;
+        }
+    </style>
+</head>
+<body>
+<div style="width:1024px;height:3em;margin:1em auto">
+    <span class="glyphicon glyphicon-comment" style="float:left;font-size:2em"><b>软件小站</b></span>
+    &nbsp;
+    <ul class="horul">
+        <li>问答</li>
+        <li>文章</li>
+        <li>趣闻</li>
+        <li>活动</li>
+    </ul>
+    &nbsp;
+    <div style="float:right;line-height:2em;">  
+    <table>  
+      <tr>  
+        <td>  
+    <input type="text"  placeholder="请输入关键词" style="width:240px;height:30px;" >  
+        </td>  
+        <td>  
+        &nbsp;  
+    <span class="glyphicon glyphicon-zoom-in" style="font-size:1.5em;cursor:pointer;"/>  
+        &nbsp;&nbsp;  
+        </td>  
+    <% if(loginbean==undefined){ %>  
+        <td>  
+    <input type="button" id="loginBtn" class="btn btn-success" data-toggle="modal" href="/users/login" data-target="#loginModal" value="登录/注册"/>
+        &nbsp;&nbsp;  
+        </td>  
+    <% }else{ %>  
+        <td>  
+        你好<%=loginbean.nicheng%>  
+        &nbsp;&nbsp;&nbsp;  
+        </td>  
+        <td>  
+        <div class="btn-group-vertical">  
+            <button type="button" class="btn btn-default dropdown-toggle"   
+              data-toggle="dropdown">  
+              撰写  
+              <span class="caret"></span>  
+            </button>  
+            <ul class="dropdown-menu">  
+              <li><a href="/question/ask">提问题</a></li>  
+              <li><a href="#">写文章</a></li>  
+              <li><a href="#">记笔记</a></li>  
+              <li class="divider"></li>  
+              <li><a href="#">草稿箱</a></li>  
+            </ul>  
+          </div>  
+        </div>  
+        </td>  
+        <td>  
+        &nbsp;&nbsp;&nbsp;  
+    <input type="button" class="btn btn-success" value="注销" onClick="javascript:location.href='/logout'"/>  
+        &nbsp;&nbsp;&nbsp;  
+        </td>  
+    <% } %>  
+        </tr>  
+          </table>  
+    </div> 
+</div>
+<div class="menu">
+    <span>home</span>
+    <span>|</span>
+    <span><a href="#">javascript</a></span>
+    <span>php</span>
+    <span>pathon</span>
+    <span>java</span>
+    <span>mysql</span>
+    <span>ios</span>
+    <span>android</span>
+    <span>node.js</span>
+    <span>html5</span>
+    <span>lunux</span>
+    <span>c++</span>
+    <span>...</span>
+</div>
