@@ -10,13 +10,15 @@ var session = require('express-session');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var question = require('./routes/question')
-
+var question = require('./routes/question');
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+
+
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -37,12 +39,22 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/question', question);
 
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
+
+// 定制 500 页面
+app.use(function(err, req, res, next){
+    console.error(err.stack);
+    res.type('text/plain');
+    res.status(500);
+    res.send('500 - Server Error');
+});
+
 
 // error handler
 app.use(function(err, req, res, next) {

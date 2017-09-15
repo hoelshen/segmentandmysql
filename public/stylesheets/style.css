@@ -1,8 +1,45 @@
 body {
-  padding: 50px;
+  padding: 10px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+ .horul{
+   float:left;
+   font-size:1.5em;
+   line-height:2em;
+ }
+.horul li{
+  display:inline-block;
+  list-style:none;
+  height:25px;
+  width:3em;
+  text-align:center;
+}
+.menu{
+  width:1024px;
+  background-color:#005f3d;
+  height:1.5em;
+  margin:0 auto;
+  font-size:1.5em;
+  visible:hidden;
+  text-align:center;
+}
+.menu span{
+  float:left;
+  display:inline-block;
+  color:#ffffff;
+  margin-left:1em;
+}
+.answer tr td div{
+  width:45px;
+  height:45px;
+  background-color:green;
+  color:#ffffff;
+  text-align:center;
+}
+.menu a,.menu a:hover,.menu a:visited{
+  color:#ffffff;
 }

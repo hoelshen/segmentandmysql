@@ -1,6 +1,6 @@
 var express = require('express');  
 var router = express.Router();  
-var checkSession = require('../jsbean/checkSession');
+var checkSession = require('../jsbean/CheckSession');
 var questionModel = require('../models/QuestionModel');
 
 
@@ -18,11 +18,11 @@ router.all('/ask', function(req, res)
         questionModel.ask(req,res);
     } 
 }),
-router.get('/detail', function(req, res)
-{
-    
-    questionModel.queDetail(req,res);
-}),
+    router.get('/detail', function(req, res)
+    {
+
+        questionModel.queDetail(req,res);
+    }),
 router.post('/reply', function(req, res)
 {
     loginbean = checkSession.check(req,res);

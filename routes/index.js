@@ -3,23 +3,50 @@ var router = express.Router();
 var multiparty = require('multiparty'); 
 var util = require('util'); 
 var fs = require('fs');
-var questionModel = require('../models/QuestionModel')
+var questionModel = require('../models/QuestionModel');
+var capacityModel = require('../models/CapacityModel');
+
+
+
+
 
 /* GET home page. */
-
-
 router.get('/', function(req, res, next) {
 	loginbean = req.session.loginbean;
 	console.log(loginbean);
     questionModel.queList(req,res,loginbean);
 });
 
+
+
+
+//------标签分类
+router.get('/capacity/:item', function(req, res,next) {
+    loginbean = req.session.loginbean;
+    item = req.params.item;
+    //console.log('item:'+item);
+    capacityModel.capaList(req,res,loginbean,item);
+});
+
+
+
+
+//----搜索标题
+router.get('/serach/:ti', function(req, res, next) {//进去之后显示列表
+    loginbean = req.session.loginbean;
+    ti = req.params.ti;
+    capacityModel.serList(req,res,loginbean,ti);
+});
+
+
+
 //----注销session 
 router.get('/logout',function(req,res){ 
       req.session.destroy(function(err) { 
             res.redirect('/'); 
         }) 
-});           
+});
+
 
 
 router.post('/uploadImg',function(req,res){ 

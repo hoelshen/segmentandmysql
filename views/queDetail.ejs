@@ -18,55 +18,57 @@
         }
     }
     function submitForm(){$('#frmDemo').submit();}
-
 </script>
-<table align='center' border="1">
-    <tr>
-        <td rowspan="2" valign="top"><%=rs[0].nicheng%></td>
-        <td align="center"><%=rs[0].title%></td>
+<div style="margin: 50px;">
+        <div class="list-group">
+            <a href="#" class="list-group-item">提问者：<%=rs[0].title%></a></li>
+            <a href="#" class="list-group-item ">时间：<%=rs[0].nicheng%></a></li>
+            <a href="#" class="list-group-item">内容：<%-rs[0].content%></a></li>
+        </div>
+        <div class="widget-answers">
+            <div class="btn-group pull-right" role="group">
+                       <a href="#" id="sortby-rank" class="btn btn-default btn-xs active">默认排序</a>
+                       <a href="#" id="sortby-created" class="btn btn-default btn-xs">时间排序</a>
+                       </div>
+                            <h2 class="title h4 mt30 mb20 post-title" id="answers-title"><%-rs[0].renum%>个回答</h2>
+                       </div>
+            </div>
+        </div>
+</div>
+<div style="margin: 50px;">
+    <%
+    if(rsReply!=undefined){
+    rsReply.forEach(function(row){
+    %>
+    <div class="list-group">
+        <a href="#" class="list-group-item">回答者：<%-row['nicheng']%></a></li>
+        <a href="#" class="list-group-item ">时间：<%-row['createtime']%></a></li>
+        <a href="#" class="list-group-item">内容：<%-row['content']%></a></li>
+    </div>
 
-    </tr>
-    <tr>
-        <td><%-rs[0].content%></td>
-    </tr>
-    <tr>
-        <td colspan="2">
-             <%-rs[0].renum%>个回答
-            <hr style="border:1px solid;margin:0px;">
-        </td>
-        <%
-                if(rsReply!=undefined){
-                    rsReply.forEach(function(row){
-        %>
-            <tr>
-                <td>
-                    <%-row['nicheng']%><br/>
-                    <%-row['createtime']%>
-                </td>
-                <td><%-row['content']%></td>
-            </tr>
-        <%
-          })
-           }
-        %> 
-        </tr>
-    </tr>
-    <tr>
-        <td colspan="2" align="center">
-            <form method="post" action="/question/reply">
-             <% if(loginbean==undefined){ %>
+    <%
+    })
+    }
+    %>
+    <div  id="goToAnswerEditor">
+        <h4>撰写答案</h4>
+        <form method="post" action="/question/reply" class="editor-wrap">
+            <% if(loginbean==undefined){ %>
             请<a href="javascript:document.getElementById('loginBtn').click()">登录</a>后发表回答
-             <% }else{ %>
-            <textarea id="content"  name="content" cols="120" rows="9"></textarea>
-                <br>
-                <input type="hidden" name="qid" value="<%=rs[0].qid%>"/>
-                <input type="hidden" name="subflag" value="1"/>
-                <input type="submit" value="回答">
+            <% }else{ %>
+            <div class="editor" id="questionText">
+                <textarea name="content" class="form-control" rows="10" placeholder="撰写答案..."></textarea>
+            </div>
+            <input type="hidden" name="qid" value="<%=rs[0].qid%>"/>
+            <input type="hidden" name="subflag" value="1"/>
+            <input type="submit" value="回答">
             <%}%>
-            </form>
-        </td>
-    </tr>
-</table>
+        </form>
+    </div>
+
+</div>
+
+
 <div class="modal fade" id="loginModal" style="width: 1080px;">
     <div class="modal-dialog">
         <div class="modal-content" style="width: 860px;">

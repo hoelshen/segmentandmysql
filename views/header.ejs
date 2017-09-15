@@ -4,52 +4,22 @@
     <title>软件小站</title>
     <meta charset="UTF-8">
     <!-- 新 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <!--<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="/javascripts/bootstrap/3.3.0/css/bootstrap.min.css">
 
-    <!--<link rel='stylesheet' href='/stylesheets/style.css' />-->
-    <style>
-        .horul{
-            float:left;
-            font-size:1.5em;
-            line-height:2em;
-        }
-        .horul li{
-            display:inline-block;
-            list-style:none;
-            height:25px;
-            width:3em;
-            text-align:center;
-        }
-        .menu{
-            width:1024px;
-            background-color:#005f3d;
-            height:1.5em;
-            margin:0 auto;
-            font-size:1.5em;
-            visible:hidden;
-            text-align:center;
-        }
-        .menu span{
-            float:left;
-            display:inline-block;
-            color:#ffffff;
-            margin-left:1em;
-        }
-        .answer tr td div{
-            width:45px;
-            height:45px;
-            background-color:green;
-            color:#ffffff;
-            text-align:center;
-        }
-        .menu a,.menu a:hover,.menu a:visited{
-            color:#ffffff;
-        }
-    </style>
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <!--<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>-->
+    <script src="/javascripts/jquery/1.11.1/jquery.min.js"></script>
+
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <!--<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>-->
+    <script src="/javascripts/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/global.css' />
+    <meta name="viewport" content="width=device-width,inital-scale=1,maxiumum-scale=1,user-scalable=no">
 </head>
 <body>
 <div style="width:1024px;height:3em;margin:1em auto">
@@ -70,7 +40,7 @@
         </td>  
         <td>  
         &nbsp;  
-    <span class="glyphicon glyphicon-zoom-in" style="font-size:1.5em;cursor:pointer;"/>  
+    <span class="glyphicon glyphicon-zoom-in" style="font-size:1.5em;cursor:pointer;" onclick="javascript:location.href='/serach'"/>
         &nbsp;&nbsp;  
         </td>  
     <% if(loginbean==undefined){ %>  
@@ -97,8 +67,7 @@
               <li class="divider"></li>  
               <li><a href="#">草稿箱</a></li>  
             </ul>  
-          </div>  
-        </div>  
+          </div>
         </td>  
         <td>  
         &nbsp;&nbsp;&nbsp;  
@@ -111,18 +80,14 @@
     </div> 
 </div>
 <div class="menu">
-    <span>home</span>
+    <span><a href="/">home</a></span>
     <span>|</span>
-    <span><a href="#">javascript</a></span>
-    <span>php</span>
-    <span>pathon</span>
-    <span>java</span>
-    <span>mysql</span>
-    <span>ios</span>
-    <span>android</span>
-    <span>node.js</span>
-    <span>html5</span>
-    <span>lunux</span>
-    <span>c++</span>
+    <span><a href="/capacity/javascript">javascript</a></span>
+    <span><a href="/capacity/php">php</a></span>
+    <span><a href="/capacity/python">python</a></span>
+    <span><a href="/capacity/mysql"> mysql</a></span>
+    <span><a href="/capacity/node.js"> node.js</a></span>
+    <span><a href="/capacity/html5"> html5</a></span>
+    <span><a href="/capacity/linux"> linux</a></span>
     <span>...</span>
 </div>

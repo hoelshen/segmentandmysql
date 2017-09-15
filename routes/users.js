@@ -10,7 +10,7 @@ var userModel = require('../models/UserModel');
 
 router.all('/login', function (req, res) {
 	subflag=req.body['subflag'];
-	if (subflag==undefined) 
+	if (subflag==undefined)
 	{
 		res.render('login');
 	}else{

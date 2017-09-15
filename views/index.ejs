@@ -1,11 +1,11 @@
 <%- include header %>
 <div style="width:1024px;margin:1em auto;">
     <div style="border:1px solid green;width:720px;float:left">
-        <ul class="horul">
-            <li>最新</li>
-            <li>最热</li>
-            <li>未回答</li>
-        </ul>
+        <!--<ul class="horul">-->
+            <!--<li>最新</li>-->
+            <!--<li>最热</li>-->
+            <!--<li>未回答</li>-->
+        <!--</ul>-->
         <table class="table">
             <tbody class="answer">
             <%
@@ -23,20 +23,31 @@
              }
              if(count>0){
             %>
-            <tr>
-                <td colspan="3" align="center">
-                    总共<%=count%>条记录,
-                    第<%=page%>/<%=countPage%>页,
-                    <% if (page!=1) {%>
-                    <a href="/?page=1">首页</a>&nbsp;
-                    <a href="/?page=<%=(page-1)%>">上一页</a>&nbsp;
-                    <% } %>
-                    <% if (page!=countPage) {%>
-                    <a href="/?page=<%=(page+1)%>">下一页</a>&nbsp;
-                    <a href="/?page=<%=countPage%>">尾页</a>
-                    <%}%>
-                </td>
-            </tr>
+
+
+            <td colspan="3" align="center">
+                <ul class="pagination">
+                    <li class="prev">
+                        总共<%=count%>条记录,
+                        第<%=page%>/<%=countPage%>页,
+                    </li>
+                    <li>
+                        <% if (page!=1) {%>
+                        <a href="/?page=1">首页</a>&nbsp;
+                        <a href="/?page=<%=(page-1)%>">上一页</a>&nbsp;
+                        <% } %>
+                    </li>
+                    <li>
+                        <% if (page!=countPage) { %>
+                        <a href="/?page=<%=(page+1)%>">下一页</a>&nbsp;
+                    </li>
+                    <li>
+                        <a href="/?page=<%=countPage%>">尾页</a>
+                        <% } %>
+                    </li>
+                </ul>
+
+            </td>
             <%
                 }
             %>
@@ -58,6 +69,22 @@
             <tr>
                 <td>3</td>
                 <td>Bangalore</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="border:1px solid green;width:300px;float:right">
+        <table class="table">
+            <caption>互动课堂</caption>
+            <tbody>
+            <tr>
+                <td>亚马逊资深面试官教你如何面试</td>
+            </tr>
+            <tr>
+                <td>从0到1解析Mybatis源码(一)：核心流程、数据转换、字段映射</td>
+            </tr>
+            <tr>
+                <td>程序员价值最大化 - 如何在面试中脱颖而出</td>
             </tr>
             </tbody>
         </table>

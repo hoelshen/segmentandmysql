@@ -3,8 +3,7 @@ var LoginBean = require("../jsbean/LoginBean");
 
 
 module.exports={
-		 zhuce:function(req,res)
-		{
+		 zhuce:function(req,res) {
 		 	pool = connPool();
 		 	//从pool中获取连接(异步,取到后回调) 
         	pool.getConnection(function(err,conn){ 
@@ -14,7 +13,7 @@ module.exports={
               res.send("获取连接错误,错误原因:"+err.message); 
               return; 
              }
-             var userAddSql = 'insert into user (email,pwd,nicheng,createtime) values(?,?,?,current_timestamp)'; 
+             var userAddSql = 'insert into user (email,pwd,nicheng,createtime) values(?,?,?,current_timestamp)';
              var param = [req.body['email'],req.body['pwd'],req.body['nicheng']];
              conn.query(userAddSql,param,function(err,rs){ 
                 if(err){ 
@@ -32,7 +31,7 @@ module.exports={
                     {
                     	 sendStr += "alert('数据库异常');"; 
                     }
-                    sendStr += " history.back();</script>" 
+                    sendStr += " history.back();" + "</script>"
                     res.send(sendStr);
                     return; 
                 } 
