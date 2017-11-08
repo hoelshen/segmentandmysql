@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./public/javascripts/socket.io.js"></script>
+    <script>
+        var iosocket = null;
+        init();
+
+        function init(){
+            iosocket = io.connect("http://localhost:9000");
+            iosocket.on("connect",function(){
+                alert("连接成功");
+                iosocket.send("hello!");
+
+            });
+
+            iosocket.on("message",function(message){
+                var chatroom = document.getElementById("chatroom");
+                chatroom.innerHTML += message+"<br>";
+            });
+            iosocket.on("disconnect",function(){
+                alert("服务端关闭");
+            });
+        }
+
+    </script>
+    <script>
+
+        document.onkeydown = function(){
+            var event = event||window.event;
+            if (event.keyCode == 13) {
+                event.returnValue = false;
+                event.cancelBubble = true;
+                return false;
+            }
+        }
+
+        function say() {
+            iosocket.send(myform.sayinput.value);
+            myform.sayinput.value = '';
+        }
+    </script>
+</head>
+<body style="margin-left: 400px;margin-top: 200px;">
+<div id='chatroom' style='width:300px;height:300px;overflow:auto;border:1px solid blue'></div>
+<form  name="myform">
+    <input type='text' name='sayinput'/>
+    <input type='button' value='say' onclick='say()'/>
+</form>
+</body>
+</html>

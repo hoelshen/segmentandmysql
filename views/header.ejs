@@ -19,29 +19,29 @@
 
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel='stylesheet' href='/stylesheets/global.css' />
-    <meta name="viewport" content="width=device-width,inital-scale=1,maxiumum-scale=1,user-scalable=no">
+    <script src="../javascripts/seek.js" ></script>
 </head>
 <body>
 <div style="width:1024px;height:3em;margin:1em auto">
     <span class="glyphicon glyphicon-comment" style="float:left;font-size:2em"><b>软件小站</b></span>
     &nbsp;
     <ul class="horul">
-        <li>问答</li>
-        <li>文章</li>
-        <li>趣闻</li>
-        <li>活动</li>
+        <li><a href="/title/active">问答</a></li>
+        <li><a href="http://localhost:8421">文章</a></li>
+        <li><a href="/title/classroom">课堂</a></li>
+        <li><a href="/title/chat">聊天</a></li>
     </ul>
     &nbsp;
     <div style="float:right;line-height:2em;">  
     <table>  
       <tr>  
-        <td>  
-    <input type="text"  placeholder="请输入关键词" style="width:240px;height:30px;" >  
-        </td>  
-        <td>  
-        &nbsp;  
-    <span class="glyphicon glyphicon-zoom-in" style="font-size:1.5em;cursor:pointer;" onclick="javascript:location.href='/serach'"/>
-        &nbsp;&nbsp;  
+
+        <td>
+            <form id="form1">
+                <input type="text" id="keyword"  placeholder="请输入关键词" style="width:240px;height:30px;" >
+                <input type="submit" value="搜索"  onclick = "ok();" />
+            </form>
+        &nbsp;&nbsp;
         </td>  
     <% if(loginbean==undefined){ %>  
         <td>  

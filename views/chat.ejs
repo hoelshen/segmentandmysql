@@ -1,0 +1,16 @@
+<%- include header %>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function ok(){
+            var nick = document.getElementById("nick").value;
+            form.setAttribute("method","GET");
+            form.setAttribute("action","http://localhost:9000/?nick"+nick);
+        }
+    </script>
+<form style="padding:10px;top: 20px;margin-left: 50px;" name="myform" id="form">
+    <input  type='text' id='nick' name='nick' placeholder='在这里输入昵称！'/>
+    <input type='submit' value='连接' onclick="javascript:ok()"/>
+</form>
+</body>
+</html>

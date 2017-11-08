@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "body-parser": "~1.17.1",
+    "connect-favicons": "git://github.com/theworkers/connect-favicons.git",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "ejs": "^2.5.7",
@@ -15,12 +16,15 @@
     "mongoose": "^4.11.9",
     "morgan": "~1.8.1",
     "multer": "^1.3.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "serve-favicon": "~2.4.2"
   },
   "devDependencies": {
     "async": "^2.5.0",
     "express-session": "^1.15.5",
     "multiparty": "^4.1.3",
-    "mysql": "^2.14.1"
+    "mysql": "^2.14.1",
+    "socket.io": "^2.0.4"
   }
 }
