@@ -48,8 +48,6 @@ io.on('connection', function(socket){
     socket.on('join', function (socketName) {
         io.emit(socket.name+'加入房间');
         console.log(socket.name + '加入了');
-
-
     });
 
 

@@ -44,4 +44,10 @@ router.post('/zhuce', function (req, res) {
 
 
 
+
+router.all('userInfo',function (req,res) {
+	userModel.getUserInfo(req,res);
+})
+
+
 module.exports = router;

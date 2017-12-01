@@ -23,7 +23,10 @@
 </head>
 <body>
 <div style="width:1024px;height:3em;margin:1em auto">
-    <span class="glyphicon glyphicon-comment" style="float:left;font-size:2em"><b>软件小站</b></span>
+    <a href="/">
+        <span class="glyphicon glyphicon-comment" style="float:left;font-size:2em"><b>软件小站</b></span>
+    </a>
+
     &nbsp;
     <ul class="horul">
         <li><a href="/title/active">问答</a></li>
@@ -50,7 +53,7 @@
         </td>  
     <% }else{ %>  
         <td>  
-        你好<%=loginbean.nicheng%>  
+        你好,<a href="/users/userInfo"><%=loginbean.nicheng%></a>
         &nbsp;&nbsp;&nbsp;  
         </td>  
         <td>  

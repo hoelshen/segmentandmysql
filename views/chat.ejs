@@ -8,9 +8,48 @@
             form.setAttribute("action","http://localhost:9000/?nick"+nick);
         }
     </script>
-<form style="padding:10px;top: 20px;margin-left: 50px;" name="myform" id="form">
-    <input  type='text' id='nick' name='nick' placeholder='在这里输入昵称！'/>
-    <input type='submit' value='连接' onclick="javascript:ok()"/>
-</form>
+    <style>
+        .overlay {
+            /* TODO: 需设置蒙层 overlay 相对于浏览器窗口进行绝对定位 */
+            position:fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 4000;
+        }
+        .dialog {
+            width: 280px;
+            text-align: center;
+            position: fixed;
+            background: #fff;
+            z-index: 4001;
+            border-radius: 5px;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+            /* TODO: 需设置dialog上下居中展示 */
+        }
+    </style>
+
+<div>
+    <div class="overlay"></div>
+    <div class="dialog">
+        <div class="dialog-bd">
+            <p class="dialog-text">登录</p>
+        </div>
+        <footer class="dialog-ft">
+            <form style="padding:10px;top: 20px;margin-left: 50px;" name="myform" id="form">
+                <input  type='text' id='nick' name='nick' placeholder='在这里输入昵称！'/>
+                <input type='submit' value='连接' onclick="javascript:ok()"/>
+            </form>
+        </footer>
+    </div>
+
+</div>
+
+
+
 </body>
 </html>

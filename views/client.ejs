@@ -2,12 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>软件小站</title>
+    <meta charset="UTF-8">
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
     <script src="./public/javascripts/socket.io.js"></script>
+    <style>
+        .myform{
+            position:relative;
+            left:10%;
+            top: 100%;
+        }
+        .horul{
+            position: absolute;
+            top: 15%;
+            left: 5%;
+            border: 2px solid #eee;
+        }
+        .overlay {
+            /* TODO: 需设置蒙层 overlay 相对于浏览器窗口进行绝对定位 */
+            position:fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 4000;
+        }
+        .dialog-bd{
+            width: 50%;
+            height: 400px;
+            float: left;
+            padding-left: 10px;
+        }
+        .dialog {
+            width: 600px;
+            text-align: center;
+            position: fixed;
+            background: #fff;
+            z-index: 4001;
+            border-radius: 5px;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+            float: right;
+            /* TODO: 需设置dialog上下居中展示 */
+        }
+        .chatroom{
+            width:50%;
+            height:400px;
+            right: 10px;
+            border:1px solid #eee;
+            float: right
+
+        }
+    </style>
     <script>
         var iosocket = null;
         init();
-
         function init(){
             iosocket = io.connect("http://localhost:9000");
             iosocket.on("connect",function(){
@@ -43,11 +101,34 @@
         }
     </script>
 </head>
-<body style="margin-left: 400px;margin-top: 200px;">
-<div id='chatroom' style='width:300px;height:300px;overflow:auto;border:1px solid blue'></div>
-<form  name="myform">
-    <input type='text' name='sayinput'/>
-    <input type='button' value='say' onclick='say()'/>
-</form>
+<body>
+
+
+<div class="overlay"></div>
+<div class="dialog">
+    <div class="dialog-bd">
+        <div style="height:3em;margin:1em auto">
+            <a href="http://127.0.0.1:3000">
+                <span class="glyphicon glyphicon-comment" style="float:left;font-size:2em"><b>软件小站</b></span>
+            </a>
+        </div>
+        <ul class="horul">
+
+            <li><a href="http://localhost:8421">文章</a></li>
+            <li><a href="/title/classroom">课堂</a></li>
+
+        </ul>
+    </div>
+        <div id='chatroom' class="chatroom">
+            <form class="myform"  name="myform">
+                <input type='text' name='sayinput'/>
+                <input type='button' value='say' onclick='say()'/>
+            </form>
+        </div>
+</div>
+
+
+
+
 </body>
 </html>

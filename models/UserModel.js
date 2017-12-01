@@ -110,5 +110,27 @@ module.exports={
     //         conn.release();
     //     });
     // }
+    getUserInfo:function(req,res){
+        loginbean = req.session.loginbean;
+        if((req.session.loginbean == undefined)){
+            res.render("pleaseLogin")
+            return;
+        }
+        pool = connPool();
+        pool.getConnection(function(err,conn){
+            var Sql = 'select qid,typeid,typename,title,content,nick,looknum,renum,ctime,updtime,finished from question where uid=?';
+            var param = [loginbean.id];
+            console.log(param);
+            conn.query(Sql,param,function(err,rs){
+                if(err){
+                    res.send("数据库出错");
+                    return;
+                }
+                res.render('userInfo',{loginbean: loginbean, rs: rs});
+            })
+            conn.release();
+        })
+
+    },
 }
 
